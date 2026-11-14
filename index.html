@@ -1,0 +1,309 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRONCLAD TACTICAL // Military Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0d0b;
+            --surface: #141a15;
+            --accent: #4c643b; /* Tactical Olive */
+            --accent-glow: #688b50;
+            --alert: #d0342c;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #263428;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Chakra Petch', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header {
+            background: rgba(20, 26, 21, 0.95);
+            border-bottom: 2px solid var(--accent);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--accent-glow);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            font-family: 'Chakra Petch', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 13, 11, 0.8), rgba(10, 13, 11, 0.9)), 
+                        url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        /* Programs Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Interactive Calculator */
+        .calc-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            margin-top: 3rem;
+            border-radius: 4px;
+        }
+
+        .calc-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Chakra Petch', sans-serif;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .calc-result {
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'Chakra Petch', sans-serif;
+            color: var(--accent-glow);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">IRONCLAD <span>TACTICAL</span></div>
+        <nav>
+            <a href="#programs">Programs</a>
+            <a href="#calculator">Readiness Check</a>
+            <a href="#contact">Enlist</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Forge Your Mind & Body</h1>
+        <p>No mirrors. No fluff. Elite tactical training, obstacle conditioning, and combat fitness designed to push human limits.</p>
+        <a href="#contact" class="btn">Enlist Today</a>
+    </section>
+
+    <div class="container">
+        <!-- Programs Section -->
+        <section id="programs">
+            <h2>Combat & Fitness Programs</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Tactical Calisthenics</h3>
+                    <p>Master bodyweight dominance. High-rep pull-ups, push variations, and functional core strength required for operational readiness.</p>
+                </div>
+                <div class="card">
+                    <h3>Ruck & Endurance</h3>
+                    <p>Build unyielding stamina with weighted rucking, distance conditioning, and high-intensity interval rucking drills.</p>
+                </div>
+                <div class="card">
+                    <h3>Combat Conditioning</h3>
+                    <p>Combines heavy kettlebells, sandbag carries, sled pushes, and explosive power movements for total combat readiness.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Calculator Section -->
+        <section id="calculator" class="calc-section">
+            <h2>Tactical Readiness Estimator</h2>
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="pushups">Max Push-ups (2 min)</label>
+                    <input type="number" id="pushups" placeholder="e.g., 60">
+                </div>
+                <div class="form-group">
+                    <label for="runTime">1.5 Mile Run Time (mins)</label>
+                    <input type="number" step="0.1" id="runTime" placeholder="e.g., 10.5">
+                </div>
+                <div class="form-group">
+                    <label for="pullups">Max Pull-ups</label>
+                    <input type="number" id="pullups" placeholder="e.g., 15">
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="btn" onclick="calculateFitness()">Evaluate Score</button>
+            </div>
+            <div class="calc-result" id="calcResult" style="margin-top: 1.5rem;"></div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2026 IRONCLAD TACTICAL GYM. All rights reserved. Discipline equals freedom.</p>
+    </footer>
+
+    <script>
+        function calculateFitness() {
+            const pushups = parseInt(document.getElementById('pushups').value) || 0;
+            const runTime = parseFloat(document.getElementById('runTime').value) || 20;
+            const pullups = parseInt(document.getElementById('pullups').value) || 0;
+            
+            const resultEl = document.getElementById('calcResult');
+
+            // Simple evaluation logic for demonstration
+            let score = (pushups * 1.5) + (pullups * 3) - (runTime * 2);
+            
+            let status = "";
+            if (score > 100) {
+                status = "STATUS: ELITE OPERATIONAL READINESS // EXCEPTIONALLY FIT";
+            } else if (score > 60) {
+                status = "STATUS: STANDARD CONDITIONING // READY FOR DEPLOYMENT";
+            } else {
+                status = "STATUS: RECRUIT PHASE // REQUIRES INTENSIVE STAMINA WORK";
+            }
+
+            resultEl.innerHTML = `${status}`;
+        }
+    </script>
+</body>
+</html>
